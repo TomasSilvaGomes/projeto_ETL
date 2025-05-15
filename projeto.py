@@ -4,6 +4,7 @@ import pandas as pd
 import requests
 from flask import Flask, session, redirect, url_for, request
 from urllib.parse import urlencode
+import urllib.parse
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -107,17 +108,24 @@ def top_streamers():
         buf.seek(0)
         csv_data = buf.getvalue()
 
+        # Fazendo encoding para colocar no href
+        csv_data_encoded = urllib.parse.quote(csv_data)
+
         return f"""
         <h2>Top 100 Streamers ao Vivo</h2>
         {table_html}
         <br><br>
-        <a id="download_link" href="data:text/csv;charset=utf-8,{csv_data}" download="top_streamers.csv" style="display:none">Baixar CSV</a>
+        <a id="download_link" href="data:text/csv;charset=utf-8,{csv_data_encoded}" download="top_streamers.csv" style="display:none">Baixar CSV</a>
         <script>
             window.onload = function() {{
                 document.getElementById('download_link').click();
             }};
         </script>
         """
+
+    except Exception as e:
+        print(f"Erro inesperado: {e}")
+        return "<h3>Erro inesperado ao processar os dados dos streamers.</h3>"
 
     except Exception as e:
         print(f"Erro inesperado: {e}")
