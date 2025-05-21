@@ -5,7 +5,7 @@ import requests
 
 client_id = "1y5q7nbsxvueh95rqckyzhtsc965ab"
 client_secret = "72qddjppywnawakxf72s8ri5dgbyl4"
-csv_path = 'top_streamers_tratado.csv'
+csv_path = 'streamers.csv'
 
 def get_app_access_token():
     url = 'https://id.twitch.tv/oauth2/token'
