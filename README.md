@@ -3,6 +3,8 @@
 
 ![Logótipo Twitch](tw.jpg)
 
+![Pipeline](pipeline.png)
+
 ## Descrição
 
 Este projeto tem como objetivo recolher dados dos streamers mais populares da plataforma Twitch, guardar os dados em ficheiros CSV, processá-los para limpeza e formatação, e posteriormente inserir essas informações numa base de dados SQL Servere obter visualizações apartir do Looker Studio.
@@ -24,6 +26,10 @@ O script está configurado para executar automaticamente num ciclo contínuo, re
 - Bibliotecas: `requests`, `pandas`, `pyodbc`, `time`
 - Base de Dados: Microsoft SQL Server
 - API Twitch Helix
+- Looker Studio para visualização de dados
+
+## Link para o Looker Studio
+- [Visualização de Dados no Looker Studio](https://lookerstudio.google.com/reporting/743bc55b-5244-4383-90f9-e6f0dcad6bf8)
 
 ## Pré-requisitos
 
